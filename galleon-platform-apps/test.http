@@ -1,0 +1,19 @@
+### Step 1 - Approve
+POST https://api.github.com/repos/{{REPO_OWNER}}/{{REPO_NAME}}/pulls/{{PR NUMBER}}/reviews
+Authorization: Bearer {{GITHUB_TOKEN}}
+Accept: application/vnd.github.v3+json
+Content-Type: application/json
+{
+  "event": "APPROVE",
+  "body": "Approved via internal UI"
+}
+
+### Step 2 - Merge
+PUT https://api.github.com/repos/{{REPO_OWNER}}/{{REPO_NAME}}/pulls/{{PR NUMBER}}/merge
+Authorization: Bearer {{GITHUB_TOKEN}}
+Accept: application/vnd.github.v3+json
+Content-Type: application/json
+{
+  "commit_title": "fix(addons): bump versions",
+  "merge_method": "merge"
+}
